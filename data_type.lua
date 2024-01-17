@@ -21,7 +21,7 @@ for k, v in pairs(tab1) do
     print(k .. " - " .. v)
 end
 
--- boolean, lua 中 0 为 true，nil 和 false 为 false
+-- bool, lua 中 0 为 true，nil 和 false 为 false
 print(type(true))
 print(type(false))
 print(type(nil))
