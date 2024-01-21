@@ -37,3 +37,78 @@ if 0 then
 else
     print("数字 0 为 false")
 end
+
+print("==== 数字 ====")
+print(type(2))
+print(type(2.2))
+print(type(0.2))
+print(type(2e+1))
+print(type(0.2e-1))
+print(type(7.8263692594256e-06))
+
+print("==== 字符串 ====")
+string1 = "this is string1"
+string2 = 'this is string2'
+-- 用 [[]] 表示一个块字符串
+html = [[
+<html>
+<head></head>
+<body>
+    <a href="http://www.runoob.com/">菜鸟教程</a>
+</body>
+</html>
+]]
+print(html)
+
+print("2" + 6) -- 8.0
+print("2" + "6") -- 8.0
+print("2 + 6") -- 2 + 6
+print("-2e2" * "6") -- -1200.0
+-- print("error" + 1) -- 出错，error不能转为数字
+
+print("==== 字符串连接 ====")
+print("a" .. 'b') -- ab
+print(157 .. 428) -- 157428
+
+len = "www.runoob.com"
+print(#len) -- 14
+print(#"www.runoob.com")
+
+print("==== 表 ====")
+-- 创建一个空的 table
+local tbl1 = {}
+-- 直接初始表
+local tbl2 = {"apple", "pear", "orange", "grape"}
+print(tbl1)
+print(tbl2)
+
+-- table 为关联数组，索引可以是数字或字符串
+a = {}
+a["key"] = "value"
+key = 10
+a[key] = 22
+a[key] = a[key] + 11
+for k, v in pairs(a) do
+    print(k .. " : " .. v)
+end
+
+local tbl = {"apple", "pear", "orange", "grape"}
+for key, val in pairs(tbl) do
+    print("Key", key)
+end
+
+-- function为一等公民
+
+-- 阶乘
+function factorial(n)
+    if n == 0 then
+        return 1
+    else
+        return n * factorial(n - 1)
+    end
+end
+x = factorial(5)
+print(x) -- 120
+f = factorial
+x = f(5)
+print(x)
