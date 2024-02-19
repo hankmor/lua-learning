@@ -10,16 +10,25 @@ print(type(type(X)))     -- string，这里 X 未定义，返回的时字符串�
 print(nil)               -- nil
 
 
-tab1 = { key1 = "val1", key2 = "val2", "val3" }
+-- 没有key的元素，默认key为1
+tab1 = { key1 = "val1", key2 = "val2", "val3"}
 for k, v in pairs(tab1) do
     print(k .. " - " .. v)
 end
-
+--[[
+1 - val3
+key2 - val2
+key1 - val1
+]]
 -- 赋值 nil 可以删除 table 中的元素
 tab1.key1 = nil
 for k, v in pairs(tab1) do
     print(k .. " - " .. v)
 end
+--[[ 
+1 - val3
+key2 - val2
+]]
 
 -- bool, lua 中 0 为 true，nil 和 false 为 false
 print(type(true))
@@ -31,12 +40,13 @@ if false or nil then
 else
     print("false 和 nil 都为 false")
 end
-
+-- false 和 nil 都为 false
 if 0 then
     print("数字 0 是 true")
 else
     print("数字 0 为 false")
 end
+-- 数字 0 是 true
 
 print("==== 数字 ====")
 print(type(2))
@@ -45,6 +55,7 @@ print(type(0.2))
 print(type(2e+1))
 print(type(0.2e-1))
 print(type(7.8263692594256e-06))
+-- 上边全部输出 number
 
 print("==== 字符串 ====")
 string1 = "this is string1"
@@ -81,6 +92,7 @@ local tbl1 = {}
 local tbl2 = {"apple", "pear", "orange", "grape"}
 print(tbl1)
 print(tbl2)
+-- 输出 tbl1和tbl2的地址，如0x600002330900
 
 -- table 为关联数组，索引可以是数字或字符串
 a = {}
@@ -91,11 +103,22 @@ a[key] = a[key] + 11
 for k, v in pairs(a) do
     print(k .. " : " .. v)
 end
-
+--[[
+key : value
+10 : 33
+]]
+-- 没有key时，索引从1开始，依次递增
 local tbl = {"apple", "pear", "orange", "grape"}
 for key, val in pairs(tbl) do
-    print("Key", key)
+    print(key .. " : " .. val)
 end
+--[[
+1 : apple
+2 : pear
+3 : orange
+4 : grape
+]]
+
 
 -- function为一等公民
 
